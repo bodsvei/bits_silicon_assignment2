@@ -15,17 +15,12 @@ output wire [ADDR_WIDTH:0] count
 );
 
 reg [DATA_WIDTH-1:0] mem [0:DEPTH-1];         //declaring memory
-
 reg [ADDR_WIDTH-1:0] wr_ptr;                  //declaring write pointer
-
 reg [ADDR_WIDTH-1:0]rd_ptr;                   //declaring read pointer
-                                             
 reg [ADDR_WIDTH:0] oc;                      
-
 integer i;
-
 always@(posedge clk)begin
-
+    
 if(!rst_n) begin                              //synchronous active-low reset
 for (i = 0; i < DEPTH; i = i + 1) begin
 mem[i] <= {DATA_WIDTH{1'b0}};                //resetting memory
